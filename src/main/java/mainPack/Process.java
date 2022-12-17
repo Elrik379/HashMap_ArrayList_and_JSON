@@ -18,7 +18,10 @@ public class Process {
                 String[] stringArray = bufferedReader.readLine().split(", ");
                 if (verifyArrayList(stringArray[3])) {
                     ArrayList<Human> humansList = humanList(stringArray[3]);
-                    humansList.add(new Man(stringArray[0], Integer.parseInt(stringArray[1])));
+                    if (stringArray[2].equals("м"))
+                        humansList.add(new Man(stringArray[0], Integer.parseInt(stringArray[1])));
+                    else
+                        humansList.add(new Woman(stringArray[0], Integer.parseInt(stringArray[1])));
                     MapClass.base.replace(stringArray[3], humansList);
 
                 } else {
